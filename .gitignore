@@ -1,4 +1,6 @@
 /node_modules
 /dist/js
 /dist/css
+/dist/*
 *nbproject*
+.sass-cache/*
