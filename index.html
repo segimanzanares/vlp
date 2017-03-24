@@ -3,10 +3,92 @@
 <html>
     <head>
         <title>Vidriería La Principal</title>
+        <!-- Lato Font -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+        <!-- Stylesheet -->
         <link rel="stylesheet" type="text/css" href="dist/css/app.min.css" />
+
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
-        <div></div>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Logo</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#introduction">Sass</a></li>
+                        <li><a href="badges.html">Components</a></li>
+                        <li><a href="collapsible.html">JavaScript</a></li>
+                    </ul>
+                    <ul class="right">
+                        <li><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <ul id="nav-mobile" class="side-nav fixed hide-on-large-only">
+                <li><a href="#introduction">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </header>
+        <!-- Navbar and Header -->
+        <div class="carousel carousel-slider center" data-indicators="true">
+            <div class="carousel-item red white-text">
+                <h2>First Panel</h2>
+                <p class="white-text">This is your first panel</p>
+            </div>
+            <div class="carousel-item amber white-text">
+                <h2>Second Panel</h2>
+                <p class="white-text">This is your second panel</p>
+            </div>
+            <div class="carousel-item green white-text">
+                <h2>Third Panel</h2>
+                <p class="white-text">This is your third panel</p>
+            </div>
+            <div class="carousel-item blue white-text">
+                <h2>Fourth Panel</h2>
+                <p class="white-text">This is your fourth panel</p>
+            </div>
+        </div>
+        <div id="introduction" class="section scrollspy">
+            <div class="parallax-container valign-wrapper">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <div class="row center">
+                            <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax"><img src="http://static.websguru.com.ar/var/m_5/56/563/73591/1073550-fondo-para-la-web.jpg" alt="Unsplashed background img 2"></div>
+            </div>
+            <section class="cd-single-item">
+                <div class="cd-slider-wrapper">
+                    <ul class="cd-slider">
+                        <li class="selected"><img src="dist/img/img-1.jpg" alt="Product Image 1"></li>
+                        <li><img src="dist/img/img-2.jpg" alt="Product Image 1"></li>
+                        <li><img src="dist/img/img-3.jpg" alt="Product Image 2"></li>
+                    </ul> <!-- cd-slider -->
+
+                    <ul class="cd-slider-navigation">
+                        <li><a href="#0" class="cd-prev inactive">Next</a></li>
+                        <li><a href="#0" class="cd-next">Prev</a></li>
+                    </ul> <!-- cd-slider-navigation -->
+
+                    <a href="#0" class="cd-close">Close</a>
+                </div> <!-- cd-slider-wrapper -->
+
+                <div class="cd-item-info">
+                    <h2>Product Title</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione.</p>
+
+                    <button class="add-to-cart">Add to cart</button>						
+                </div>
+            </section>
+        </div>
+        
         <script type="text/javascript" src="dist/js/app.min.js"></script>
     </body>
 </html>
