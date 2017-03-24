@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks("grunt-contrib-connect");
 
     grunt.initConfig({
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    'dist/css/app.min.css': ['node_modules/materialize-css/dist/css/materialize.min.css', 'dist/css/app.css']
+                    'dist/css/app.min.css': ['node_modules/materialize-css/dist/css/materialize.min.css', 'src/scss/lib/expandable-gallery.css', 'dist/css/app.css']
                 }
             }
         },
@@ -41,15 +42,15 @@ module.exports = function(grunt) {
                 },
 
                 files: {
-                    "dist/js/app.min.js" : ["node_modules/jquery/dist/jquery.min.js", 'node_modules/materialize-css/dist/js/materialize.min.js', "src/js/app.js"]
+                    "dist/js/app.min.js" : ["node_modules/jquery/dist/jquery.min.js", 'node_modules/materialize-css/dist/js/materialize.min.js', 'src/js/lib/expandable-gallery.js', "src/js/app.js"]
                 }
             }
         },
         concat: {
             dev: {
                 files: {
-                    'dist/js/app.min.js': ['node_modules/jquery/dist/jquery.min.js', 'node_modules/materialize-css/dist/js/materialize.min.js', 'src/js/app.js'],
-                    'dist/css/app.min.css': ['node_modules/materialize-css/dist/css/materialize.min.css', 'dist/css/app.css']
+                    'dist/js/app.min.js': ['node_modules/jquery/dist/jquery.min.js', 'node_modules/materialize-css/dist/js/materialize.min.js', 'src/js/lib/expandable-gallery.js', 'src/js/app.js'],
+                    'dist/css/app.min.css': ['node_modules/materialize-css/dist/css/materialize.min.css', 'src/scss/lib/expandable-gallery.css', 'dist/css/app.css']
                 }
             }
         },
@@ -58,18 +59,23 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'node_modules/materialize-css/dist/fonts/roboto',
                 src: '**',
-                dest: 'dist/fonts/roboto/',
-            },
+                dest: 'dist/fonts/roboto/'
+            }
+        },
+        clean: {
+            dist: [
+                'dist/js', 'dist/css', 'dist/fonts'
+            ]
         },
         connect: {
             server : {
                 options: {
-                    open: true,
+                    open: false,
                     keepalive: true
                 }
             }
         }
     });
-    grunt.registerTask("dev", ["sass:dev", "concat:dev", "copy:fonts", "connect:server"]);
-    grunt.registerTask("prod", ["sass:dev", "cssmin", "uglify:dev", "copy:fonts", "connect:server"]);
+    grunt.registerTask("dev", ["clean:dist", "sass:dev", "concat:dev", "copy:fonts", "connect:server"]);
+    grunt.registerTask("prod", ["clean:dist", "sass:dev", "cssmin", "uglify:dev", "copy:fonts"]);
 };
