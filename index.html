@@ -126,6 +126,19 @@
                 </div>
             </section>
         </div>
+        <div id="contact" class="section scrollspy">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 center">
+                        <h4>Contáctanos</h4>
+                        <p><strong>Dirección: </strong>Av. Oaxaca, entre 9a y 10a norte, frente a la secundaria técnica no. 86</p>
+                        <p><strong>Teléfono: </strong>(954) 126-4216</p>
+                        <p><strong>Horario de atención: </strong>Lunes a sábado de 08:00 a 19:00 hrs.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="map-canvas" style="height: 400px;"></div>
+        </div>
         <footer class="page-footer teal">
             <div class="footer-copyright">
                 <div class="container">
@@ -134,5 +147,24 @@
             </div>
         </footer>
         <script type="text/javascript" src="dist/js/app.min.js"></script>
+        <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.0&sensor=false&key=AIzaSyA0ZOAahrtwvyfEWsIht0iQl_-525NXsIY"></script>
+        <script type="text/javascript">
+            var map;
+            function initialize() {
+                var latLong = new google.maps.LatLng(15.8711549, -97.0837659,287);
+                var mapOptions = {
+                    zoom: 17,
+                    scrollwheel: false,
+                    center: latLong
+                };
+                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                var marker = new google.maps.Marker({
+                    position: latLong,
+                    map: map,
+                    title: 'Vidrieria La Principal'
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
     </body>
 </html>
