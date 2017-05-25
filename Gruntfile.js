@@ -34,7 +34,7 @@ module.exports = function(grunt) {
             }
         },
         uglify: {
-            dev: {
+            prod: {
                 options: {
                     compress: true,
                     mangle: true,
@@ -49,8 +49,8 @@ module.exports = function(grunt) {
         concat: {
             dev: {
                 files: {
-                    'dist/js/app.min.js': ['node_modules/jquery/dist/jquery.min.js', 'node_modules/materialize-css/dist/js/materialize.min.js', 'src/js/lib/expandable-gallery.js', 'src/js/app.js'],
-                    'dist/css/app.min.css': ['node_modules/materialize-css/dist/css/materialize.min.css', 'src/scss/lib/expandable-gallery.css', 'dist/css/app.css']
+                    'dist/js/app.js': ['node_modules/jquery/dist/jquery.min.js', 'node_modules/materialize-css/dist/js/materialize.min.js', 'src/js/lib/expandable-gallery.js', 'src/js/app.js'],
+                    'dist/css/app.css': ['node_modules/materialize-css/dist/css/materialize.min.css', 'src/scss/lib/expandable-gallery.css', 'dist/css/app.css']
                 }
             }
         },
@@ -76,6 +76,6 @@ module.exports = function(grunt) {
             }
         }
     });
-    grunt.registerTask("dev", ["clean:dist", "sass:dev", "concat:dev", "copy:fonts", "connect:server"]);
-    grunt.registerTask("prod", ["clean:dist", "sass:dev", "cssmin", "uglify:dev", "copy:fonts"]);
+    grunt.registerTask("dev", ["sass:dev", "concat:dev", "copy:fonts", "connect:server"]);
+    grunt.registerTask("prod", ["sass:dev", "cssmin", "uglify:prod", "copy:fonts"]);
 };
