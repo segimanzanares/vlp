@@ -1,6 +1,5 @@
 /node_modules
-/dist/js
-/dist/css
-/dist/fonts
+/dist/js/app.js
+/dist/css/app.css
 *nbproject*
 .sass-cache/*
